@@ -1,0 +1,31 @@
+{
+  "dist\\@nejcm\\js-library-boilerplate.umd.js": {
+    "bundled": 453,
+    "minified": 299,
+    "gzipped": 221
+  },
+  "dist\\@nejcm\\js-library-boilerplate.cjs.js": {
+    "bundled": 137,
+    "minified": 113,
+    "gzipped": 122
+  },
+  "dist\\@nejcm\\js-library-boilerplate.umd.min.js": {
+    "bundled": 453,
+    "minified": 299,
+    "gzipped": 221
+  },
+  "dist\\@nejcm\\js-library-boilerplate.esm.js": {
+    "bundled": 55,
+    "minified": 41,
+    "gzipped": 60,
+    "treeshaked": {
+      "rollup": {
+        "code": 0,
+        "import_statements": 0
+      },
+      "webpack": {
+        "code": 951
+      }
+    }
+  }
+}

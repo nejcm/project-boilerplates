@@ -1,0 +1,47 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master, beta, next, develop]
+  pull_request:
+    branches: [master, beta, next, develop]
+
+jobs:
+  build:
+    name: Building project...
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key:
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{
+            hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install
+        run: npm install
+
+      - name: Test
+        run: npm run validate
+
+      - name: Build
+        run: npm run build
+
+      - name: Release
+        if: ${{ github.event_name == 'push' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run release

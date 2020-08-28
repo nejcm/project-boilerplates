@@ -1,0 +1,118 @@
+{
+  "name": "@nejcm/react-boilerplate",
+  "version": "0.0.0-semantically-released",
+  "author": "Nejc Mursic <nmursi2@gmail.com> (https://github.com/nejcm)",
+  "description": "Starter kit for my react projects. Based on create-react-app.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nejcm/react-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/nejc/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/nejcm/react-boilerplate",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "keywords": [
+    "react",
+    "library",
+    "js",
+    "es6"
+  ],
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier ./src/**/*.{js,jsx,ts,tsx,md,mdx} --write",
+    "clean": "rimraf build coverage",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "test:cov": "react-scripts test --coverage --colors --watchAll=false && jest-coverage-badges",
+    "test:build": "react-scripts test --coverage --colors --silent --watchAll=false && jest-coverage-badges",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:clean": "docz clean",
+    "validate": "npm run format && npm run lint && npm run test:build",
+    "setup": "npm run clean && npm run validate",
+    "semantic-release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "@testing-library/user-event": "^12.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "babel-eslint": "10.1.0",
+    "babel-loader": "8.1.0",
+    "babel-plugin-minify-dead-code-elimination": "0.5.1",
+    "webpack": "4.42.0",
+    "webpack-dev-server": "3.11.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "codecov": "^3.7.2",
+    "cpy-cli": "^3.1.1",
+    "docz": "^2.3.1",
+    "docz-theme-default": "^1.2.0",
+    "eslint-config-kentcdodds": "^14.14.2",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "husky": "^4.2.5",
+    "jest-coverage-badges": "^1.1.2",
+    "jest-resolve": "^26.4.0",
+    "jest-watch-typeahead": "^0.6.0",
+    "lint-staged": "^10.2.11",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.1.1"
+  },
+  "devDependencies": {},
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/serviceWorker.js",
+      "!src/index.{js,jsx,ts,tsx}"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "json",
+      "lcov",
+      "text"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
